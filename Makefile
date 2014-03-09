@@ -16,7 +16,7 @@ _DEPS = slidingmc.h common.h scont.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 # object files
-_OBJ1 = slidingmc.o scont.o query2.o
+_OBJ1 = slidingmc.o scont.o
 OBJ1 = $(patsubst %,$(ODIR)/%,$(_OBJ1))
 
 _OBJ2 = broker.o
@@ -31,12 +31,15 @@ $(ODIR)/%_test.o: $(TDIR)/%_test.cpp $(DEPS)
 $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
 	$(CC) $(CFLAGS) -o $@ $<
 
-all: dir $(ODIR)/query2 $(ODIR)/broker
+all: dir $(ODIR)/query2 $(ODIR)/broker $(ODIR)/query2m
 
 dir:
 	mkdir -p $(ODIR)
 
-$(ODIR)/query2: $(OBJ1)
+$(ODIR)/query2: $(OBJ1) $(ODIR)/query2.o
+	$(CC) -I$(IDIR) -o $@ $^ $(PROFILE) $(LIBS)
+
+$(ODIR)/query2m: $(OBJ1) $(ODIR)/query2m.o
 	$(CC) -I$(IDIR) -o $@ $^ $(PROFILE) $(LIBS)
 
 $(ODIR)/broker: $(OBJ2)

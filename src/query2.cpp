@@ -57,8 +57,8 @@ Node* current_node;
 
 void solveQuery2(measurement *m)
 {
-    struct timeval tbegin, tend;
-    gettimeofday(&tbegin, NULL);
+    // struct timeval tbegin, tend;
+    // gettimeofday(&tbegin, NULL);
 
     long unsigned latency[1000000];
     int c = 0;
@@ -119,18 +119,18 @@ void solveQuery2(measurement *m)
                 {
                     if(ts + getWindowSize(ws) >= current_node->mt.timestamp)
                     {
-                        gettimeofday(&tend, NULL);
-                        latency[c] = (tend.tv_sec-tbegin.tv_sec)*1000000 + tend.tv_usec-tbegin.tv_usec;
-                        c++;
+                        // gettimeofday(&tend, NULL);
+                        // latency[c] = (tend.tv_sec-tbegin.tv_sec)*1000000 + tend.tv_usec-tbegin.tv_usec;
+                        // c++;
                         long int times = (long int)current_node->mt.timestamp;
                         cout << (times+1-getWindowSize(ws)) << "," << times << "," << house_id << ","
                              << num_percentage_more[i][house_id]/(msc[i][house_id].getSize()/100.0) <<endl;
                     }
                     else
                     {
-                        gettimeofday(&tend, NULL);
-                        latency[c] = (tend.tv_sec-tbegin.tv_sec)*1000000 + tend.tv_usec-tbegin.tv_usec;
-                        c++;
+                        // gettimeofday(&tend, NULL);
+                        // latency[c] = (tend.tv_sec-tbegin.tv_sec)*1000000 + tend.tv_usec-tbegin.tv_usec;
+                        // c++;
                         cout << (ts+1) << "," << (ts + getWindowSize(ws)) << "," << house_id << ","
                              << num_percentage_more[i][house_id]/(msc[i][house_id].getSize()/100.0) <<endl;
                     }
@@ -143,18 +143,18 @@ void solveQuery2(measurement *m)
                 {
                     if(ts + getWindowSize(ws) >= current_node->mt.timestamp)
                     {
-                        gettimeofday(&tend, NULL);
-                        latency[c] = (tend.tv_sec-tbegin.tv_sec)*1000000 + tend.tv_usec-tbegin.tv_usec;
-                        c++;
+                        // gettimeofday(&tend, NULL);
+                        // latency[c] = (tend.tv_sec-tbegin.tv_sec)*1000000 + tend.tv_usec-tbegin.tv_usec;
+                        // c++;
                         long int times = (long int)current_node->mt.timestamp;
                         cout << (times+1-getWindowSize(ws)) << "," << times << "," << m->house_id << ","
                              << num_percentage_more[i][m->house_id]/(msc[i][m->house_id].getSize()/100.0) <<endl;
                     }
                     else
                     {
-                        gettimeofday(&tend, NULL);
-                        latency[c] = (tend.tv_sec-tbegin.tv_sec)*1000000 + tend.tv_usec-tbegin.tv_usec;
-                        c++;
+                        // gettimeofday(&tend, NULL);
+                        // latency[c] = (tend.tv_sec-tbegin.tv_sec)*1000000 + tend.tv_usec-tbegin.tv_usec;
+                        // c++;
                         cout << (ts+1) << "," << (ts + getWindowSize(ws)) << "," << m->house_id << ","
                              << num_percentage_more[i][m->house_id]/(msc[i][m->house_id].getSize()/100.0) <<endl;
                     }
@@ -170,18 +170,18 @@ void solveQuery2(measurement *m)
                     {
                         if(ts + getWindowSize(ws) >= current_node->mt.timestamp)
                         {
-                            gettimeofday(&tend, NULL);
-                            latency[c] = (tend.tv_sec-tbegin.tv_sec)*1000000 + tend.tv_usec-tbegin.tv_usec;
-                            c++;
+                            // gettimeofday(&tend, NULL);
+                            // latency[c] = (tend.tv_sec-tbegin.tv_sec)*1000000 + tend.tv_usec-tbegin.tv_usec;
+                            // c++;
                             long int times = (long int)current_node->mt.timestamp;
                             cout << (times+1-getWindowSize(ws)) << "," << times << "," << h << ","
                                  << num_percentage_more[i][h]/(msc[i][h].getSize()/100.0) <<endl;
                         }
                         else
                         {
-                            gettimeofday(&tend, NULL);
-                            latency[c] = (tend.tv_sec-tbegin.tv_sec)*1000000 + tend.tv_usec-tbegin.tv_usec;
-                            c++;
+                            // gettimeofday(&tend, NULL);
+                            // latency[c] = (tend.tv_sec-tbegin.tv_sec)*1000000 + tend.tv_usec-tbegin.tv_usec;
+                            // c++;
                             cout << (ts+1) << "," << (ts + getWindowSize(ws)) << "," << h << ","
                                  << num_percentage_more[i][h]/(msc[i][h].getSize()/100.0) <<endl;
                         }
