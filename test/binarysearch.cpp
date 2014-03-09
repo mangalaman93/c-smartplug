@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 using namespace std;
 
 float data[] = {1, 2, 3, 4, 6, 8, 80};
@@ -21,9 +22,9 @@ int binarySearch(int first, int last, float val)
 
 int main()
 {
-	cout<<binarySearch(0, 7, 3)<<endl;
-	cout<<binarySearch(0, 7, -1)<<endl;
-	cout<<binarySearch(0, 7, 80.0)<<endl;
-	cout<<binarySearch(0, 7, 5)<<endl;
-	cout<<binarySearch(0, 7, 80.1)<<endl;
+	assert(2 == binarySearch(0, 7, 3));
+	assert(0 == binarySearch(0, 7, -1));
+	assert(6 == binarySearch(0, 7, 80.0));
+	assert(3 == binarySearch(0, 7, 5));
+	assert(6 == binarySearch(0, 7, 80.1));
 }

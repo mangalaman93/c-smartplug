@@ -26,6 +26,7 @@ class SlidingMc
 
 	int cum_sum;
 	int cur_median_index;
+	int maxnum_bins = MAXNUM_BINS;
 
 	float findMedian();
 	int binarySearch(float val);
@@ -37,6 +38,7 @@ class SlidingMc
   	SlidingMc();
 	~SlidingMc();
 	SlidingMc(const SlidingMc &smc);
+	void setMaxBins(int maxbins);
 	float getMedian();
 	void insert(float val);
 	void del(float val);

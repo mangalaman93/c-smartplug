@@ -4,7 +4,7 @@ SlidingMc::SlidingMc()
 {
 	size = 0;
 	num_bins = 0;
-	bins = new Bin[MAXNUM_BINS+2];
+	bins = new Bin[maxnum_bins+2];
 	bins = &(bins[1]);
 
 	cur_median_index = -1;
@@ -16,7 +16,7 @@ SlidingMc::SlidingMc(const SlidingMc &smc)
 	size = smc.size;
 	num_bins = smc.num_bins;
 
-	bins = new Bin[MAXNUM_BINS+2];
+	bins = new Bin[maxnum_bins+2];
 	bins = &(bins[1]);
 
 	cur_median_index = smc.cur_median_index;
@@ -27,6 +27,11 @@ SlidingMc::SlidingMc(const SlidingMc &smc)
 		bins[i].val = smc.bins[i].val;
 		bins[i].freq = smc.bins[i].freq;
 	}
+}
+
+void SlidingMc::setMaxBins(int maxbins)
+{
+	maxnum_bins = maxbins;
 }
 
 float SlidingMc::findMedian()
@@ -137,7 +142,7 @@ void SlidingMc::insert(float val)
 		num_bins++;
 	} else
 	{
-		if(bins[pos].val == val || MAXNUM_BINS <= num_bins)
+		if(bins[pos].val == val || maxnum_bins <= num_bins)
 		{
 			if(pos <= cur_median_index)
 				cum_sum++;
@@ -197,10 +202,10 @@ void SlidingMc::insert(float val)
 	}
 
 	// merge bins
-	if(num_bins == MAXNUM_BINS+1)
+	if(num_bins == maxnum_bins+1)
 	{
 		int min = bins[0].freq + bins[1].freq, sum, index=0;
-		for(int i=1; i<MAXNUM_BINS; i++)
+		for(int i=1; i<maxnum_bins; i++)
 		{
 			sum = bins[i].freq + bins[i+1].freq;
 			if(min > sum)

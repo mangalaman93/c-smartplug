@@ -25,7 +25,8 @@ int main()
         for(int i=100; i<=num_exp; i++)
         {
             Mc m1;
-            SlidingMc m2(i);
+            SlidingMc m2;
+            m2.setMaxBins(i);
 
             for(int j=0; j<nrolls; j++)
             {

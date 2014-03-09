@@ -17,7 +17,7 @@ int main()
     for(int i=0; i<num_exp; i++)
     {
         Mc m1;
-        SlidingMc m2(1200);
+        SlidingMc m2;
 
         for(int j=0; j<nrolls; j++)
         {
