@@ -9,7 +9,7 @@ CFLAGS = -Wall -D_FILE_OFFSET_BITS="64" -c -std=c++0x $(DEBUG) -I$(IDIR) $(PROFI
 SDIR = src
 ODIR = bin
 TDIR = test
-LIBS = -lm -lpthread -std=c++0x
+LIBS = -lm -lpthread -lrt -std=c++0x
 
 # header files => .cpp files
 _DEPS = slidingmc.h common.h scont.h mc.h

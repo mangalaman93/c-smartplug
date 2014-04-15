@@ -14,7 +14,7 @@ Number of houses = 40 (id from 0 to 39)
 
 ### Query 2
 	make
-	./bin/broker 5668 priv/temp.csv (Terminal 1)
+	./bin/broker_q2 5668 priv/temp.csv (Terminal 1)
 	./bin/query2 127.0.0.1 5668 (Terminal 2)
 
 Run Custom Test (Query 2)
